@@ -1,142 +1,148 @@
-// ===============================
-// Mobile Menu Toggle
-// ===============================
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
 
-const menuBtn = document.getElementById("menu-btn");
-const menu = document.getElementById("menu");
+body{
+    background:#f5f5f5;
+}
 
-menuBtn.addEventListener("click", () => {
-    menu.classList.toggle("active");
-});
+.container{
+    width:1000px;
+    margin:20px auto;
+    display:flex;
+    background:#fff;
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
 
-// Close menu after clicking a link
-document.querySelectorAll("#menu a").forEach(link => {
-    link.addEventListener("click", () => {
-        menu.classList.remove("active");
-    });
-});
+.left{
+    width:50%;
+    padding:40px;
+    background:#fff;
+}
 
-// ===============================
-// Sticky Header
-// ===============================
+.right{
+    width:50%;
+    background:#022b18;
+    color:white;
+    padding:40px;
+    position:relative;
+}
 
-window.addEventListener("scroll", () => {
-    const header = document.querySelector("header");
+.left h1{
+    font-size:60px;
+    line-height:60px;
+    color:#1c3025;
+}
 
-    if (window.scrollY > 50) {
-        header.classList.add("sticky");
-    } else {
-        header.classList.remove("sticky");
-    }
-});
+.left h2{
+    margin-top:20px;
+    font-size:40px;
+    font-weight:400;
+}
 
-// ===============================
-// Reveal Animation on Scroll
-// ===============================
+.about{
+    margin-top:40px;
+    background:#c9d1a5;
+    padding:25px;
+    border-radius:20px;
+}
 
-const observer = new IntersectionObserver((entries) => {
+.about h3{
+    display:inline-block;
+    background:#123d28;
+    color:white;
+    padding:10px 25px;
+    border-radius:30px;
+    margin-bottom:15px;
+}
 
-    entries.forEach(entry => {
+.about p{
+    font-size:22px;
+    line-height:35px;
+}
 
-        if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-        }
+.box{
+    margin-top:40px;
+}
 
-    });
+.box h3{
+    display:inline-block;
+    background:#c9d1a5;
+    padding:10px 30px;
+    border-radius:30px;
+    margin-bottom:20px;
+}
 
-}, {
-    threshold: 0.2
-});
+.box ul{
+    list-style:none;
+    line-height:45px;
+    font-size:28px;
+}
 
-document.querySelectorAll(
-".card, .review, .gallery img, .about, .offer, .contact"
-).forEach((el) => {
+.box p{
+    line-height:40px;
+    font-size:22px;
+}
 
-    el.classList.add("hidden");
+.profile{
+    width:280px;
+    height:280px;
+    border-radius:50%;
+    overflow:hidden;
+    border:10px solid white;
+    margin:-10px auto 40px;
+}
 
-    observer.observe(el);
+.profile img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
 
-});
+.details h2{
+    background:#c9d1a5;
+    color:white;
+    padding:10px 20px;
+    border-radius:30px;
+    display:inline-block;
+    margin-bottom:20px;
+}
 
-// ===============================
-// Smooth Scroll
-// ===============================
+.details p{
+    font-size:24px;
+    line-height:45px;
+}
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+.lang{
+    display:flex;
+    gap:40px;
+}
 
-    anchor.addEventListener("click", function (e) {
+.circle{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    background:conic-gradient(#022b18 360deg,#ccc 0deg);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
 
-        e.preventDefault();
+.english{
+    background:conic-gradient(#022b18 180deg,#ccc 0deg);
+}
 
-        document.querySelector(this.getAttribute("href"))
-        .scrollIntoView({
-            behavior: "smooth"
-        });
-
-    });
-
-});
-
-// ===============================
-// Button Hover Effect
-// ===============================
-
-document.querySelectorAll(".btn").forEach(button => {
-
-    button.addEventListener("mouseenter", () => {
-        button.style.transform = "scale(1.05)";
-    });
-
-    button.addEventListener("mouseleave", () => {
-        button.style.transform = "scale(1)";
-    });
-
-});
-
-// ===============================
-// Welcome Message
-// ===============================
-
-window.addEventListener("load", () => {
-
-    console.log("🍦 Welcome to IceCream Heaven!");
-
-});
-
-// ===============================
-// Scroll To Top Button
-// ===============================
-
-const topBtn = document.createElement("button");
-
-topBtn.innerHTML = "⬆";
-
-topBtn.id = "topBtn";
-
-document.body.appendChild(topBtn);
-
-window.addEventListener("scroll", () => {
-
-    if (window.scrollY > 300) {
-
-        topBtn.style.display = "block";
-
-    } else {
-
-        topBtn.style.display = "none";
-
-    }
-
-});
-
-topBtn.addEventListener("click", () => {
-
-    window.scrollTo({
-
-        top: 0,
-
-        behavior: "smooth"
-
-    });
-
-});
+.inner{
+    width:80px;
+    height:80px;
+    background:white;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:25px;
+    color:black;
+}
